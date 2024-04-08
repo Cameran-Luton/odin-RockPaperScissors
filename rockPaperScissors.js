@@ -12,40 +12,68 @@ function getComputerChoice() {
   }
 }
 
-function playAGame(playerSelection, computerSelection) {
+function PlayAGame(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
-  console.log(computerSelection);
 
   if (playerSelection == "rock") {
     if (computerSelection == "rock") {
-      console.log("Draw");
+      return "Draw";
     }
     if (computerSelection == "scissors") {
-      console.log("Win");
+      return "Win";
     }
     if (computerSelection == "paper") {
-      console.log("Lose");
+      return "Lose";
     }
   } else if (playerSelection == "paper") {
     if (computerSelection == "rock") {
-      console.log("Win");
+      return "Win";
     }
     if (computerSelection == "scissors") {
-      console.log("Lose");
+      return "Lose";
     }
     if (computerSelection == "paper") {
-      console.log("Draw");
+      return "Draw";
     }
   } else if (playerSelection == "scissors") {
     if (computerSelection == "rock") {
-      console.log("Lose");
+      return "Lose";
     }
     if (computerSelection == "scissors") {
-      console.log("Draw");
+      return "Draw";
     }
     if (computerSelection == "rock") {
-      console.log("Win");
+      return "Win";
     }
   }
 }
-console.log(playAGame(prompt("make your choice"), getComputerChoice()));
+
+function PlayFiveGames() {
+  let pScore = 0;
+  let cScore = 0;
+  let WDL = "";
+  for (let index = 0; index < 5; index++) {
+    WDL = PlayAGame(prompt("make your choice"), getComputerChoice());
+    switch (WDL) {
+      case "Win":
+        pScore++;
+        break;
+      case "Draw":
+        break;
+      case "Lose":
+        cScore++;
+        break;
+
+      default:
+        break;
+    }
+  }
+  console.log(cScore);
+  console.log(pScore);
+  if (pScore > cScore) {
+    return "WINNER";
+  } else {
+    return "LOSER";
+  }
+}
+console.log(PlayFiveGames());
