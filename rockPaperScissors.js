@@ -2,15 +2,50 @@ function getComputerChoice() {
   let rng = Math.floor(Math.random() * 3);
   switch (rng) {
     case 0:
-      return "Rock";
+      return "rock";
     case 1:
-      return "Paper";
+      return "paper";
     case 2:
-      return "Scissors";
+      return "scissors";
     default:
       return "Error";
   }
 }
-let choice = prompt("test");
-console.log(choice);
-console.log(getComputerChoice());
+
+function playAGame(playerSelection, computerSelection) {
+  playerSelection = playerSelection.toLowerCase();
+  console.log(computerSelection);
+
+  if (playerSelection == "rock") {
+    if (computerSelection == "rock") {
+      console.log("Draw");
+    }
+    if (computerSelection == "scissors") {
+      console.log("Win");
+    }
+    if (computerSelection == "paper") {
+      console.log("Lose");
+    }
+  } else if (playerSelection == "paper") {
+    if (computerSelection == "rock") {
+      console.log("Win");
+    }
+    if (computerSelection == "scissors") {
+      console.log("Lose");
+    }
+    if (computerSelection == "paper") {
+      console.log("Draw");
+    }
+  } else if (playerSelection == "scissors") {
+    if (computerSelection == "rock") {
+      console.log("Lose");
+    }
+    if (computerSelection == "scissors") {
+      console.log("Draw");
+    }
+    if (computerSelection == "rock") {
+      console.log("Win");
+    }
+  }
+}
+console.log(playAGame(prompt("make your choice"), getComputerChoice()));
