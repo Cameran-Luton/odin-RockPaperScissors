@@ -9,42 +9,12 @@ rbtn.addEventListener("click", function () {
 });
 
 pbtn.addEventListener("click", function () {
-  console.log("played");
   setMessage(PlayAGame("paper", getComputerChoice()));
 });
 
 sbtn.addEventListener("click", function () {
   setMessage(PlayAGame("scissors", getComputerChoice()));
 });
-
-// function PlayFiveGames() {
-//   let pScore = 0;
-//   let cScore = 0;
-//   let WDL = "";
-//   for (let index = 0; index < 5; index++) {
-//     WDL = PlayAGame(prompt("make your choice"), getComputerChoice());
-//     switch (WDL) {
-//       case "Win":
-//         pScore++;
-//         break;
-//       case "Draw":
-//         break;
-//       case "Lose":
-//         cScore++;
-//         break;
-
-//       default:
-//         break;
-//     }
-//   }
-//   console.log(cScore);
-//   console.log(pScore);
-//   if (pScore > cScore) {
-//     return "WINNER";
-//   } else {
-//     return "LOSER";
-//   }
-// }
 
 function setMessage(outcome) {
   switch (outcome) {
