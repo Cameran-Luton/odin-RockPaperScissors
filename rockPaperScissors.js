@@ -1,3 +1,70 @@
+const rbtn = document.querySelector("#rock");
+const pbtn = document.querySelector("#paper");
+const sbtn = document.querySelector("#scissors");
+const message = document.querySelector(".display");
+const scoreText = document.querySelector(".score");
+let score = 0;
+rbtn.addEventListener("click", function () {
+  setMessage(PlayAGame("rock", getComputerChoice()));
+});
+
+pbtn.addEventListener("click", function () {
+  console.log("played");
+  setMessage(PlayAGame("paper", getComputerChoice()));
+});
+
+sbtn.addEventListener("click", function () {
+  setMessage(PlayAGame("scissors", getComputerChoice()));
+});
+
+// function PlayFiveGames() {
+//   let pScore = 0;
+//   let cScore = 0;
+//   let WDL = "";
+//   for (let index = 0; index < 5; index++) {
+//     WDL = PlayAGame(prompt("make your choice"), getComputerChoice());
+//     switch (WDL) {
+//       case "Win":
+//         pScore++;
+//         break;
+//       case "Draw":
+//         break;
+//       case "Lose":
+//         cScore++;
+//         break;
+
+//       default:
+//         break;
+//     }
+//   }
+//   console.log(cScore);
+//   console.log(pScore);
+//   if (pScore > cScore) {
+//     return "WINNER";
+//   } else {
+//     return "LOSER";
+//   }
+// }
+
+function setMessage(outcome) {
+  switch (outcome) {
+    case "Win":
+      message.textContent = "YOU WIN!!!!";
+      score++;
+      scoreText.textContent = "Score: " + score;
+      break;
+    case "Lose":
+      message.textContent = "YOU LOSE!!!!";
+      break;
+    case "Draw":
+      message.textContent = "IT WAS A DRAW";
+      break;
+
+    default:
+      break;
+  }
+}
+
 function getComputerChoice() {
   let rng = Math.floor(Math.random() * 3);
   switch (rng) {
@@ -13,8 +80,6 @@ function getComputerChoice() {
 }
 
 function PlayAGame(playerSelection, computerSelection) {
-  playerSelection = playerSelection.toLowerCase();
-
   if (playerSelection == "rock") {
     if (computerSelection == "rock") {
       return "Draw";
@@ -47,33 +112,3 @@ function PlayAGame(playerSelection, computerSelection) {
     }
   }
 }
-
-// function PlayFiveGames() {
-//   let pScore = 0;
-//   let cScore = 0;
-//   let WDL = "";
-//   for (let index = 0; index < 5; index++) {
-//     WDL = PlayAGame(prompt("make your choice"), getComputerChoice());
-//     switch (WDL) {
-//       case "Win":
-//         pScore++;
-//         break;
-//       case "Draw":
-//         break;
-//       case "Lose":
-//         cScore++;
-//         break;
-
-//       default:
-//         break;
-//     }
-//   }
-//   console.log(cScore);
-//   console.log(pScore);
-//   if (pScore > cScore) {
-//     return "WINNER";
-//   } else {
-//     return "LOSER";
-//   }
-// }
-console.log(PlayFiveGames());
